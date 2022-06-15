@@ -1,12 +1,12 @@
 import * as actions from './MultiPlantActionTypes';
 
 const updateSupplyPlantInfo = (supplyPlantInfo) => ({
-    type: actions.setRecDetails,
+    type: actions.updateSupplyPlantInfo,
     payload: supplyPlantInfo
 })
 
 const updateDemandPlantInfo = (demandPlantInfo) => ({
-    type: actions.updateRecDetails,
+    type: actions.updateDemandPlantInfo,
     payload: demandPlantInfo
 })
 
