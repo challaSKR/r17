@@ -1,5 +1,6 @@
 export const createNewDataSource(plantData, relatedSinglePlantRecRop,relatedUserDefinedData,relatedRecommended) {
     const newDataSource = defaultData(plantData);
+    _.set(newDataSource[0], '');
     newDataSource.push({
       current : plantData?.REC_SL,
       key:"RecommendedSL",
