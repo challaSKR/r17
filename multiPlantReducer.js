@@ -13,7 +13,7 @@ const initialState = {
   }
 }
 
-export default function multiPlantReducer(initialState, action) {
+export default function multiPlantReducer(state=initialState, action) {
 
   switch (action.type) {
     case multiplantActionTypes.updateSupplyPlantInfo:
