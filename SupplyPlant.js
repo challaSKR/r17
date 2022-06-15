@@ -6,6 +6,7 @@ import '../MultiPlant.css';
 import _ from 'lodash';
 import MultiPlantRecommendations from '../MultiPlantRecommondations/MultiPlantRecommendations';
 import { getRecRopForSupplyPlant, getRecLotSize, getMonetaryImpact, getRecMaxLVL, getFMI } from '../util';
+import allActions from '../../../../actions';
 
 const SupplyPlant = (props) => {
 
@@ -31,6 +32,7 @@ const SupplyPlant = (props) => {
     const [inputRop, setInputRop] = useState(null);
     const [inputMaxLvL,setInputMaxLvl] = useState(null);
     const [inputLotSize, setInputLotSize] = useState(null);
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
