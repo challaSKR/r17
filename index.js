@@ -19,8 +19,8 @@ const MultiPlant = (props) => {
     const dispatch = useDispatch();
     const [isReset, setReset] = useState(false);
     const userState = useSelector((state) => state.authState?.userDetails);
-    const supplyPlantInfo = useSelector((state) => state.multiPlantState.supplyPlantInfo);
-    const demandPlantInfo = useSelector((state) => state.multiPlantState.demandPlantInfo);
+    const supplyPlantInfo = useSelector((state) => state.multiPlantState.supplyPlant);
+    const demandPlantInfo = useSelector((state) => state.multiPlantState.demandPlants);
 
     const plantData = data?.find(
         (entry) => entry?.PLANT_FACILITY_SAP_ID === plant && entry?.MATERIAL_TYPE_SAP_ID === material
