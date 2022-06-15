@@ -1,6 +1,19 @@
 import * as  multiplantActionTypes from '../actions/MultiPlantDomain/MultiPlantActionTypes';
 
-export default function multiPlantReducer(state = {}, action) {
+const initialState = {
+  "supplyPlant":{
+    "userDefined": [],
+    "recommended": [],
+    "singlePlantRecRop": []
+  },
+  "demandPlants": {
+    "userDefined": [],
+    "recommended": [],
+    "singlePlantRecRop": []
+  }
+}
+
+export default function multiPlantReducer(initialState, action) {
 
   switch (action.type) {
     case multiplantActionTypes.updateSupplyPlantInfo:
