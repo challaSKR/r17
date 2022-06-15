@@ -7,7 +7,7 @@ import './MultiPlant.css';
 import { Content } from 'antd/lib/layout/layout';
 import PropTypes from 'prop-types';
 import DemandPlant from './DemanPlant/DemandPlant';
-import _, { each } from 'lodash';
+import _ from 'lodash';
 import allActions from '../../../actions';
 import { createNewDataSource } from './util';
 import { createIOTAPayload } from '../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
@@ -50,7 +50,7 @@ const MultiPlant = (props) => {
 
 
     const saveRec = () => {
-        _.forEach([SupplyPlant, ...demandPlants], (eachPlant)=>{
+        _.forEach([SupplyPlantData, ...demandPlants], (eachPlant)=>{
             let singlePlantRecRop;
             let userDefined;
             let recommended;
@@ -61,9 +61,9 @@ const MultiPlant = (props) => {
                  userDefined = _.get(supplyPlantInfo, 'userDefined');
                  recommended = _.get(supplyPlantInfo, 'recommended');
             }else{
-                singlePlantRecRop = _.get(supplyPlantInfo, 'singlePlantRecRop');
-                userDefined = _.get(supplyPlantInfo, 'userDefined');
-                recommended = _.get(supplyPlantInfo, 'recommended');
+                singlePlantRecRop = _.get(demandPlantInfo, 'singlePlantRecRop');
+                userDefined = _.get(demandPlantInfo, 'userDefined');
+                recommended = _.get(demandPlantInfo, 'recommended');
             }
 
             const relatedSinglePlantRecRop = _.get(singlePlantRecRop, `${plant}`);
