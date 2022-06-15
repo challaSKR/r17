@@ -133,7 +133,7 @@ const SupplyPlant = (props) => {
                             </Descriptions.Item>
                         </Descriptions>
                         {_.some(setInputRopFromDemandPlants, (eachDemandPlant)=>{
-                                if(_.get(eachDemandPlant, 'inputRop') > recRop){
+                                if( eachDemandPlant > recRop){
                                     return true
                                 }
                             }) && <Alert
