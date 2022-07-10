@@ -186,4 +186,34 @@ module.exports = {
       res.send({ success: false, responseData: undefined, error: error });
     });
   },
+  createChangeLogForBulkApproval: function (req, res) {
+    const requestString = '[dbo].[Bulk_Approval_Create_Changelog]';
+    const changeObject = req.body;
+    const changes = changeObject.changes[0];
+    const args = [
+      { name: "PLANT_ID", type: TYPES.NVarChar, value: changeObject.plant },
+      { name: "MATERIAL_ID", type: TYPES.NVarChar, value: changeObject.material },
+      { name: "ERP", type: TYPES.NVarChar, value: changes.erp },
+      { name: "MRPArea", type: TYPES.NVarChar, value: changes.mrparea },
+      { name: "CHANGED_BY_ID", type: TYPES.VarChar, value: changeObject.changedBy },
+      { name: "CHANGED_BY_EMAIL", type: TYPES.VarChar, value: changeObject.changedByEmail },
+      { name: "ROP_OLD", type: TYPES.VarChar, value: changes.ReorderPoint_OLD },
+      { name: "ROP_NEW", type: TYPES.VarChar, value: changes.ReorderPoint_NEW },
+      { name: "MAX_OLD", type: TYPES.VarChar, value: changes.MaximumStockLevel_OLD },
+      { name: "MAX_NEW", type: TYPES.VarChar, value: changes.MaximumStockLevel_NEW },
+      { name: "MLS_OLD", type: TYPES.VarChar, value: changes.MinimumLotSize_OLD },
+      { name: "MLS_NEW", type: TYPES.VarChar, value: changes.MinimumLotSize_NEW },
+      { name: "ROUNDING_VALUE_OLD", type: TYPES.Int, value: changes.RoundingValue_OLD },
+      { name: "ROUNDING_VALUE_NEW", type: TYPES.Int, value: changes.RoundingValue_NEW },
+      { name: "SERVICE_LEVEL_NEW", type: TYPES.VarChar, value: changes.RecommenedSL_NEW },
+      { name: "BASE_UNIT_OF_MEASURE", type: TYPES.VarChar, value: changes.BASE_UNIT_OF_MEASURE_SAP_ID },
+      { name: "COMMENT", type: TYPES.VarChar, value: changes.COMMENTS },
+      { name: "MI", type: TYPES.Decimal, value: changes.MONITORY_IMPACT },
+      { name: "MI_IND", type: TYPES.VarChar, value: changes.MONITORY_IMPACT_INDICATOR },
+      { name: "CURRENCY_CD", type: TYPES.VarChar, value: changes.CURRENCY },
+      { name: "UNIT_COST", type: TYPES.Decimal, value: changes.UNIT_COST },
+      { name: "UNRISTRICRTED_STOCK_QUANTITY", type: TYPES.BigInt, value: changes.TOTAL_STOCK },
+    ];
+    requestHandler(req, res, requestString, args);
+  }
 }
