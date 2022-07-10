@@ -79,6 +79,9 @@ router.route('/generate-CSV').post(
   materialList.generateCSV);
 router.route('/generate-CSV/:run_id').get(
   materialList.getCSV);
+router.route('/bulk-approve').post(
+  materialList.createChangeLogForBulkApproval
+);
 
 // material details endpoints
 router.route(
