@@ -1,11 +1,10 @@
-CREATE PROCEDURE [dbo].[Bulk_Approval_Create_Changelog]
-(
-  	@bulk_approval_create_changelog bulkApprovalChangeLogType READONLY
+CREATE PROCEDURE [dbo].[Bulk_Approval_Create_Changelog](
+	@bulk_approval_changelog bulkApprovalChangeLogType READONLY
 )
   AS
   BEGIN
     DECLARE 
-	    @PLANT_ID NVARCHAR(40),
+    		@PLANT_ID NVARCHAR(40),
             @MATERIAL_ID NVARCHAR(40),
             @ERP NVARCHAR(40),
             @MRPArea NVARCHAR(40),
