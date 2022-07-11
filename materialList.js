@@ -192,7 +192,7 @@ module.exports = {
     var Rows = [];
     changes.forEach(function (obj) {
       var tempRow = [obj.plant, obj.material,obj.erp,obj.mrparea, 
-                     obj.changedBy,obj.changedByEmail,obj.ReorderPoint_OLD,
+                     changeObject.changedBy,changeObject.changedByEmail,obj.ReorderPoint_OLD,
                      obj.ReorderPoint_NEW,obj.MaximumStockLevel_OLD,obj.MaximumStockLevel_NEW,
                      obj.MinimumLotSize_OLD,obj.MinimumLotSize_NEW,
                      obj.RoundingValue_OLD, obj.RoundingValue_NEW,
