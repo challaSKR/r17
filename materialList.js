@@ -188,7 +188,7 @@ module.exports = {
   createChangeLogForBulkApproval: function (req, res) {
     const requestString = '[dbo].[Bulk_Approval_Create_Changelog]';
     const changeObject = req.body;
-    const changes = changeObject.changes[0];
+    const changes = changeObject.changes;
     var Rows = [];
     changes.forEach(function (obj) {
       var tempRow = [obj.plant, obj.material,obj.erp,obj.mrparea, 
