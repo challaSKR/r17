@@ -13,7 +13,6 @@ const AcceptRecForAllMaterials = (props) => {
     const selectedItems = _.get(props, 'selectedMaterials', []);
     const [confirmationData, setConfirmationData] = useState({});
     const [confirmationVisible, setConfirmationVisible] = useState(false);
-    const [reviewComplete, setReviewComplete]=useState(false);
     const dispatch = useDispatch();
     const authState = useSelector((state) => state.authState?.userDetails);
 
@@ -21,7 +20,6 @@ const AcceptRecForAllMaterials = (props) => {
         let selectedMaterials = _.cloneDeep(selectedItems);
         let changeLogPayload = [];
         setConfirmationVisible(false);
-        setReviewComplete(true);
         selectedMaterials = _.map(selectedMaterials, eachMaterial => _.extend({reviewdBy: authState?.uid}, eachMaterial));
         _.forEach(selectedMaterials, (eachPlantMaterial)=>{
             const newDataSource = createNewDataSourceForBulkApproval(eachPlantMaterial);
@@ -48,7 +46,6 @@ const AcceptRecForAllMaterials = (props) => {
     return (
         <>
             <Button
-                loading={reviewComplete}
                 type="primary"
                 className="matlist-button"
                 onClick={() => openReviewConfirmationModal()}
