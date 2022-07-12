@@ -28,8 +28,8 @@ const AcceptRecForAllMaterials = (props) => {
             const iotaPayload = createIOTAPayloadForBulkApproval(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, eachPlantMaterial);
             changeLogPayload.push(iotaPayload);
         })
-        const bulkApprovePayload = {changes: changeLogPayload, changed}
-        dispatch(allActions.MaterialDetailsActions.bulkApprove(changeLogPayload));
+        const bulkApprovePayload = {changes: changeLogPayload, changedBy: authState?.uid, changedByEmail: authState?.mail}
+        dispatch(allActions.MaterialDetailsActions.bulkApprove(bulkApprovePayload));
       };
 
     const confirmData = {
