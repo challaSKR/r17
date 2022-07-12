@@ -6,7 +6,7 @@ import allActions from '../../../../actions';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import {createNewDataSourceForBulkApproval} from '../../MultiPlant/util';
-import { createIOTAPayload } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
+import { createIOTAPayloadForBulkApproval } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
 
 const AcceptRecForAllMaterials = (props) => {
 
