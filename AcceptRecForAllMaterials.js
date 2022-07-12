@@ -25,10 +25,11 @@ const AcceptRecForAllMaterials = (props) => {
         selectedMaterials = _.map(selectedMaterials, eachMaterial => _.extend({reviewdBy: authState?.uid}, eachMaterial));
         _.forEach(selectedMaterials, (eachPlantMaterial)=>{
             const newDataSource = createNewDataSourceForBulkApproval(eachPlantMaterial);
-            const iotaPayload = createIOTAPayload(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, authState, eachPlantMaterial);
-            changeLogPayload.push(_.flatten(iotaPayload));
+            const iotaPayload = createIOTAPayloadForBulkApproval(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, eachPlantMaterial);
+            changeLogPayload.push(iotaPayload);
         })
-        dispatch(allActions.MaterialDetailsActions.bulkApprove(selectedMaterials));
+        const bulkApprovePayload = {changes: changeLogPayload, changed}
+        dispatch(allActions.MaterialDetailsActions.bulkApprove(changeLogPayload));
       };
 
     const confirmData = {
