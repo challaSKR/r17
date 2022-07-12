@@ -90,7 +90,7 @@ export const createIOTAPayloadForBulkApproval = (plant, material, dataSource,dat
         material,
         mrparea: data?.MRP_AREA_SAP_ID,
         erp: data?.ERP_CD
-    })
+    }
   return changeObject;
 };
 
