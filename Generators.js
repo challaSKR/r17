@@ -88,8 +88,8 @@ export const createIOTAPayloadForBulkApproval = (plant, material, dataSource,dat
         ["TOTAL_STOCK"]:isValue(data?.EDAM_VALUATED_UNRESTRICTED_USE_STOCK_QTY),
         plant,
         material,
-        mrpArea: data?.mrpArea,
-        erp: data?.erp
+        mrpArea: data?.MRP_AREA_SAP_ID,
+        erp: data?.ERP_CD
     })
   return changeObject;
 };
