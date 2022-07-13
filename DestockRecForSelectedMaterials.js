@@ -49,7 +49,7 @@ const DestockRecForSelectedMaterils = (props) => {
                 className="matlist-button"
                 onClick={() => openReviewConfirmationModal()}
             >
-                Accept Recommendations
+                Destock Rec
             </Button>
 
             {
