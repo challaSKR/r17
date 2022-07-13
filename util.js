@@ -73,28 +73,35 @@ export const createNewDataSource = (plantData, relatedUserSelectedServiceLevel,r
 }
 
 
-export const createNewDataSourceForBulkApproval = (plantData) => {
+export const createNewDataSourceForDestock = (plantData) => {
   const newDataSource = defaultData(plantData);
 
   const reOrderPoint = _.find(newDataSource, {'key':'ReorderPoint'})
 
   if(reOrderPoint){
-    _.set(reOrderPoint, 'userDefined',  plantData?.CC_REC_ROP)
+    _.set(reOrderPoint, 'recommended',  0)
     _.set(reOrderPoint, 'current', plantData?.EDAM_REORDER_POINT_QTY);
   }
 
   const maximumStockLevel = _.find(newDataSource, {'key':'MaximumStockLevel'})
 
   if(maximumStockLevel){
-    _.set(maximumStockLevel, 'userDefined',  plantData?.CC_REC_MAX)
+    _.set(maximumStockLevel, 'recommended',  0)
     _.set(maximumStockLevel, 'current', plantData?.EDAM_MAXIMUM_STOCK_QTY);
   }
 
   const minimumLotSize = _.find(newDataSource, {'key':'MinimumLotSize'})
 
   if(minimumLotSize){
-    _.set(minimumLotSize, 'userDefined',  plantData?.CC_REC_MLS)
+    _.set(minimumLotSize, 'recommended',  0);
     _.set(minimumLotSize, 'current', plantData?.MINIMUM_LOT_SIZE);
+  }
+    
+  const roundingValue = _.find(newDataSource, {'key':'RoundingValue'})
+
+  if(roundingValue){
+    _.set(roundingValue, 'recommended',  0);
+    _.set(roundingValue, 'current', plantData?.EDAM_ROUNDING_VALUE_FOR_PO_QTY);
   }
 
   newDataSource.push({
@@ -104,6 +111,7 @@ export const createNewDataSourceForBulkApproval = (plantData) => {
     recommended: 'n/a',
     userDefined: plantData?.REC_SL
   })
+    
   _.set(newDataSource, 'comments','-')
 
   return newDataSource
