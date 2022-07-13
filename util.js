@@ -72,6 +72,19 @@ export const createNewDataSource = (plantData, relatedUserSelectedServiceLevel,r
     return newDataSource
 }
 
+export const createNewDataSourceForBulkApproval = (plantData) => {
+    const newDataSource = defaultData(plantData);
+    newDataSource.push({
+      current : plantData?.REC_SL,
+      key:"RecommenedSL",
+      name: "Recommened SL",
+      recommended: plantData?.REC_SL,
+      userDefined: plantData?.REC_SL
+    })
+    _.set(newDataSource, 'comments','-');
+    return newDataSource
+}
+
 
 export const createNewDataSourceForDestock = (plantData) => {
   const newDataSource = defaultData(plantData);
@@ -109,7 +122,6 @@ export const createNewDataSourceForDestock = (plantData) => {
     key:"RecommenedSL",
     name: "Recommened SL",
     recommended: plantData?.REC_SL,
-    userDefined: plantData?.REC_SL
   })
     
   _.set(newDataSource, 'comments','-')
