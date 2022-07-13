@@ -27,8 +27,8 @@ const DestockRecForSelectedMaterils = (props) => {
             changeLogPayload.push(iotaPayload);
         })
         const destockPayaload = {changes: changeLogPayload, changedBy: authState?.uid, changedByEmail: authState?.mail}
-        console.log(allactions);
-        dispatch(allActions.MaterialDetailsActions.bulkApprove(destockPayaload));
+        console.log(allActions);
+        //dispatch(allActions.MaterialDetailsActions.bulkApprove(destockPayaload));
       };
 
     const confirmData = {
@@ -74,10 +74,10 @@ const DestockRecForSelectedMaterils = (props) => {
 
 export default memo(DestockRecForSelectedMaterils);
 
-AcceptRecForAllMaterials.defaultProps = {
+DestockRecForSelectedMaterils.defaultProps = {
     selectedMaterials: []
 };
 
-AcceptRecForAllMaterials.propTypes = {
+DestockRecForSelectedMaterils.propTypes = {
     selectedMaterials: PropTypes.arrayOf(PropTypes.object),
 };
