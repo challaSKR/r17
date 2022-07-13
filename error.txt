@@ -1,3 +1,28 @@
+ReorderPoint_OLD: 2,
+      ReorderPoint_NEW: null,
+      MaximumStockLevel_OLD: 2,
+      MaximumStockLevel_NEW: null,
+      MinimumLotSize_OLD: null,
+      MinimumLotSize_NEW: 1,
+      RoundingValue_OLD: null,
+      RoundingValue_NEW: 1,
+      RecommenedSL_NEW: '80',
+      BASE_UNIT_OF_MEASURE_SAP_ID: 'EA',
+      COMMENTS: '-',
+      MONITORY_IMPACT: 1987.76,
+      MONITORY_IMPACT_INDICATOR: 'Reduction',
+      CURRENCY: 'USD',
+      UNIT_COST: 993.88,
+      TOTAL_STOCK: 0,
+      plant: 'A005',
+      material: '10013591',
+      mrparea: 'A005',
+      erp: 'GC'
+    }
+  ],
+  changedBy: 'INRMKS',
+  changedByEmail: 'ramesh.manne@shell.com'
+}
 C:\Users\ramesh.manne\Desktop\shell\sio-webapi-dev\node_modules\jsbi\dist\jsbi-cjs.js:1
 'use strict';class JSBI extends Array{constructor(a,b){if(a>JSBI.__kMaxLength)throw new RangeError("Maximum BigInt size exceeded");super(a),this.sign=b}static BigInt(a){var b=Math.floor,c=Number.isFinite;if("number"==typeof a){if(0===a)return JSBI.__zero();if((0|a)===a)return 0>a?JSBI.__oneDigit(-a,!0):JSBI.__oneDigit(a,!1);if(!c(a)||b(a)!==a)throw 
 new RangeError("The number "+a+" cannot be converted to BigInt because it is not an integer");return JSBI.__fromDouble(a)}if("string"==typeof a){const b=JSBI.__fromString(a);if(null===b)throw new SyntaxError("Cannot convert "+a+" to a BigInt");return b}if("boolean"==typeof a)return!0===a?JSBI.__oneDigit(1,!1):JSBI.__zero();if("object"==typeof a){if(a.constructor===JSBI)return a;const b=JSBI.__toPrimitive(a);return JSBI.BigInt(b)}throw new TypeError("Cannot convert "+a+" to a BigInt")}toDebugString(){const a=["BigInt["];for(const b of this)a.push((b?(b>>>0).toString(16):b)+", ");return a.push("]"),a.join("")}toString(a=10){if(2>a||36<a)throw new RangeError("toString() radix argument must be between 2 and 36");return 0===this.length?"0":0==(a&a-1)?JSBI.__toStringBasePowerOfTwo(this,a):JSBI.__toStringGeneric(this,a,!1)}static toNumber(a){const b=a.length;if(0===b)return 0;if(1===b){const b=a.__unsignedDigit(0);return a.sign?-b:b}const c=a.__digit(b-1),d=JSBI.__clz32(c),e=32*b-d;if(1024<e)return a.sign?-Infinity:1/0;let f=e-1,g=c,h=b-1;const i=d+1;let j=32===i?0:g<<i;j>>>=12;const k=i-12;let l=12<=i?0:g<<20+i,m=20+i;0<k&&0<h&&(h--,g=a.__digit(h),j|=g>>>32-k,l=g<<k,m=k),0<m&&0<h&&(h--,g=a.__digit(h),l|=g>>>32-m,m-=32);const n=JSBI.__decideRounding(a,m,h,g);if((1===n||0===n&&1==(1&l))&&(l=l+1>>>0,0===l&&(j++,0!=j>>>20&&(j=0,f++,1023<f))))return a.sign?-Infinity:1/0;const o=a.sign?-2147483648:0;return f=f+1023<<20,JSBI.__kBitConversionInts[1]=o|f|j,JSBI.__kBitConversionInts[0]=l,JSBI.__kBitConversionDouble[0]}static unaryMinus(a){if(0===a.length)return a;const b=a.__copy();return b.sign=!a.sign,b}static bitwiseNot(a){return a.sign?JSBI.__absoluteSubOne(a).__trim():JSBI.__absoluteAddOne(a,!0)}static exponentiate(a,b){if(b.sign)throw 
@@ -22,4 +47,14 @@ RangeError: The number NaN cannot be converted to BigInt because it is not an in
     at RpcRequestPayload.getData (C:\Users\ramesh.manne\Desktop\shell\sio-webapi-dev\node_modules\tedious\lib\rpcrequest-payload.js:71:5)
     at Connection.makeRequest (C:\Users\ramesh.manne\Desktop\shell\sio-webapi-dev\node_modules\tedious\lib\connection.js:1869:17)
     at Connection.callProcedure (C:\Users\ramesh.manne\Desktop\shell\sio-webapi-dev\node_modules\tedious\lib\connection.js:1664:10)
-[nodemon] app crashed - waiting for file changes before starting...
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! Server@1.0.0 start: `node server.js`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the Server@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\ramesh.manne\AppData\Roaming\npm-cache\_logs\2022-07-13T07_11_08_003Z-debug.log
+PS C:\Users\ramesh.manne\Desktop\shell\sio-webapi-dev>
