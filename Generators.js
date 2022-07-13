@@ -70,12 +70,12 @@ export const createIOTAPayload = (plant, material, dataSource, user,data) => {
 
 export const createIOTAPayloadForBulkAPI = (plant, material, dataSource,data) => {
       const changeObject = {
-        [dataSource[0].key+"_OLD"]: isVal(dataSource[0].current),
-        [dataSource[0].key+"_NEW"]: isVal(dataSource[0].recommended),
-        [dataSource[1].key+"_OLD"]: isVal(dataSource[1].current),
-        [dataSource[1].key+"_NEW"]: isVal(dataSource[1].recommended),
-        [dataSource[2].key+"_OLD"]: isVal(dataSource[2].current),
-        [dataSource[2].key+"_NEW"]: isVal(dataSource[2].recommended),
+        [dataSource[0].key+"_OLD"]: isValue(dataSource[0].current),
+        [dataSource[0].key+"_NEW"]: isValue(dataSource[0].recommended),
+        [dataSource[1].key+"_OLD"]: isValue(dataSource[1].current),
+        [dataSource[1].key+"_NEW"]: isValue(dataSource[1].recommended),
+        [dataSource[2].key+"_OLD"]: isValue(dataSource[2].current),
+        [dataSource[2].key+"_NEW"]: isValue(dataSource[2].recommended),
         [dataSource[3].key+"_OLD"]: isValue(dataSource[3].current),
         [dataSource[3].key+"_NEW"]: isValue(dataSource[3].recommended),
         [dataSource[4].key+"_NEW"]: dataSource[4].recommended,
