@@ -25,7 +25,7 @@ CREATE PROCEDURE [dbo].[Bulk_Approval_Create_Changelog](
             @MI_IND VARCHAR(40),
             @CURRENCY_CD VARCHAR(40),
             @UNIT_COST DECIMAL,
-            @UNRISTRICRTED_STOCK_QUANTITY INT;
+            @UNRISTRICRTED_STOCK_QUANTITY BIGINT;
             
     DECLARE bulk_approval_changelog_cursor CURSOR
     FOR SELECT PLANT_ID,MATERIAL_ID,ERP,MRPArea,CHANGED_BY_ID,CHANGED_BY_EMAIL,
