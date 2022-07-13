@@ -198,7 +198,7 @@ module.exports = {
                      obj.RoundingValue_OLD, obj.RoundingValue_NEW,
                      obj.RecommenedSL_NEW, obj.BASE_UNIT_OF_MEASURE_SAP_ID,obj.COMMENTS,
                      obj.MONITORY_IMPACT, obj.MONITORY_IMPACT_INDICATOR,
-                     obj.CURRENCY,obj.UNIT_COST,BigInt(obj.TOTAL_STOCK)
+                     obj.CURRENCY,obj.UNIT_COST,obj.TOTAL_STOCK
                     ];
       Rows.push(tempRow);
     });
