@@ -108,7 +108,7 @@ export const createNewDataSourceForDestock = (plantData) => {
     current : plantData?.REC_SL,
     key:"RecommenedSL",
     name: "Recommened SL",
-    recommended: 'n/a',
+    recommended: plantData?.REC_SL,
     userDefined: plantData?.REC_SL
   })
     
