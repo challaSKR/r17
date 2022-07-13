@@ -5,8 +5,8 @@ import ConfirmModal from '../../../Common/ConfirmModal';
 import allActions from '../../../../actions';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
-import {createNewDataSourceForBulkApproval} from '../../MultiPlant/util';
-import { createIOTAPayloadForBulkApproval } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
+import {createNewDataSource} from '../../MultiPlant/util';
+import { createIOTAPayloadForBulkAPI } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
 
 const AcceptRecForAllMaterials = (props) => {
 
@@ -22,8 +22,8 @@ const AcceptRecForAllMaterials = (props) => {
         setConfirmationVisible(false);
         selectedMaterials = _.map(selectedMaterials, eachMaterial => _.extend({reviewdBy: authState?.uid}, eachMaterial));
         _.forEach(selectedMaterials, (eachPlantMaterial)=>{
-            const newDataSource = createNewDataSourceForBulkApproval(eachPlantMaterial);
-            const iotaPayload = createIOTAPayloadForBulkApproval(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, eachPlantMaterial);
+            const newDataSource = createNewDataSource(eachPlantMaterial);
+            const iotaPayload = createIOTAPayloadForBulkAPI(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, eachPlantMaterial);
             changeLogPayload.push(iotaPayload);
         })
         const bulkApprovePayload = {changes: changeLogPayload, changedBy: authState?.uid, changedByEmail: authState?.mail}
