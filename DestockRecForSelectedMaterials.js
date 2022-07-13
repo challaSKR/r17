@@ -5,8 +5,8 @@ import ConfirmModal from '../../../Common/ConfirmModal';
 import allActions from '../../../../actions';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
-//import {createNewDataSourceForBulkApproval} from '../../MultiPlant/util';
-//import { createIOTAPayloadForBulkApproval } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
+import {createNewDataSourceForBulkApproval} from '../../MultiPlant/util';
+import { createIOTAPayloadForBulkApproval } from '../../MaterialDetails/components/SummaryComponents/Recommendations/Generators';
 
 const DestockRecForSelectedMaterils = (props) => {
 
@@ -22,11 +22,13 @@ const DestockRecForSelectedMaterils = (props) => {
         setConfirmationVisible(false);
         selectedMaterials = _.map(selectedMaterials, eachMaterial => _.extend({reviewdBy: authState?.uid}, eachMaterial));
         _.forEach(selectedMaterials, (eachPlantMaterial)=>{
-            //need to check which data needs to passed to 
-            //changeLogPayload.push(iotaPayload);
+            const newDataSource = createNewDataSourceForBulkApproval(eachPlantMaterial);
+            const iotaPayload = createIOTAPayloadForBulkApproval(eachPlantMaterial?.PLANT_FACILITY_SAP_ID, eachPlantMaterial?.MATERIAL_TYPE_SAP_ID, newDataSource, eachPlantMaterial);
+            changeLogPayload.push(iotaPayload);
         })
         const destockPayaload = {changes: changeLogPayload, changedBy: authState?.uid, changedByEmail: authState?.mail}
-        //dispatch(allActions.MaterialDetailsActions.bulkApprove(bulkApprovePayload));
+        console.log(allactions);
+        dispatch(allActions.MaterialDetailsActions.bulkApprove(destockPayaload));
       };
 
     const confirmData = {
