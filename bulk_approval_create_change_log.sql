@@ -4,7 +4,7 @@ CREATE PROCEDURE [dbo].[Bulk_Approval_Create_Changelog](
   AS
   BEGIN
     DECLARE 
-    		@PLANT_ID NVARCHAR(40),
+    	    @PLANT_ID NVARCHAR(40),
             @MATERIAL_ID NVARCHAR(40),
             @ERP NVARCHAR(40),
             @MRPArea NVARCHAR(40),
