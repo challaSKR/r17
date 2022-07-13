@@ -27,8 +27,7 @@ const DestockRecForSelectedMaterils = (props) => {
             changeLogPayload.push(iotaPayload);
         })
         const destockPayaload = {changes: changeLogPayload, changedBy: authState?.uid, changedByEmail: authState?.mail}
-        console.log(allActions);
-        //dispatch(allActions.MaterialDetailsActions.bulkApprove(destockPayaload));
+        dispatch(allActions.MaterialDetailsActions.bulkApprove(destockPayaload));
       };
 
     const confirmData = {
@@ -50,6 +49,7 @@ const DestockRecForSelectedMaterils = (props) => {
                 type="primary"
                 className="matlist-button"
                 onClick={() => openReviewConfirmationModal()}
+                 disabled={true}
             >
                 Destock Rec
             </Button>
