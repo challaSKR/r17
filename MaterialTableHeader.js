@@ -18,7 +18,7 @@ import AdvancedSearchContainer from './HeaderComponents/AdvancedSearch/AdvancedS
 import CSVDownload from './HeaderComponents/CSVDownload';
 import BomDownload from './HeaderComponents/BomDownload';
 import ReviewData from './HeaderComponents/ReviewData';
-import AcceptRecForAllMaterials from './HeaderComponents/AcceptRecForAllMaterials';
+import AcceptRecForAllMaterials from './HeaderComponents/AcceptRecOrDestockForAllMaterials';
 import FODDownload from './HeaderComponents/FODDownload';
 
 import allActions from '../../../actions';
@@ -153,7 +153,7 @@ const MaterialTableHeader = ({
               )}
 
               {selectedMaterials && selectedMaterials.length > 0 && (
-                <AcceptRecForAllMaterials selectedMaterials={selectedMaterials}></AcceptRecForAllMaterials>
+                <AcceptRecOrDestockForAllMaterials selectedMaterials={selectedMaterials}></AcceptRecOrDestockForAllMaterials>
               )}
               
             {userName ? (
