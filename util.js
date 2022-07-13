@@ -63,7 +63,7 @@ export const createNewDataSource = (plantData, relatedUserSelectedServiceLevel,r
       current : plantData?.REC_SL,
       key:"RecommenedSL",
       name: "Recommened SL",
-      recommended: 'n/a',
+      recommended: plantData?.REC_SL,
       userDefined: relatedUserSelectedServiceLevel?.userSelectedServiceLevel ? relatedUserSelectedServiceLevel?.userSelectedServiceLevel.toString() : plantData?.REC_SL
     })
     _.set(newDataSource, 'comments','-')
